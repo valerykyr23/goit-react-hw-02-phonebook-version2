@@ -34,12 +34,13 @@ export class ContactForm extends Component {
 
     return (
       
-    <form className={css.contactForm} onSubmit={this.handleSubmit}>
+    <form className={css.mainForm} onSubmit={this.handleSubmit}>
       <div>
-        <label>
-          {' '}
+        <label className={css.formLabel}>
+          
           Name
-          <input
+            <input
+              className={css.formInput}
             value={this.state.name}
             onChange={this.handleInputChange}
             type="text"
@@ -52,10 +53,11 @@ export class ContactForm extends Component {
       </div>
 
       <div>
-        <label>
-          {' '}
+        <label className={css.formLabel}>
+          
           Number
-          <input
+            <input
+              className={css.formInput}
             value={this.state.number}
             onChange={this.handleInputChange}
             type="tel"
@@ -67,7 +69,7 @@ export class ContactForm extends Component {
         </label>
       </div>
 
-        <button type="submit"> Add contact</button>
+        <button className={css.addButton} type="submit"> Add contact</button>
     </form>
   );
   }
