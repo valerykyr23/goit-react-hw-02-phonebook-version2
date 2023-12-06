@@ -49,10 +49,10 @@ state = {
   
   render() {
 
-    const { contacts, filter } = this.state;
+    const { filter } = this.state;
 
     const normalizedFilter = this.state.filter.toLowerCase();
-  const visibleContactsList = this.state.contacts.filter(contact => contact.name.toLowerCase().includes(filter));
+  const visibleContactsList = this.state.contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
   
     
     return (
