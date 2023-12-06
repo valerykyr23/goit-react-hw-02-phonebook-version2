@@ -19,7 +19,11 @@ state = {
   filter: ''
 }
 
-  
+  changeFilter = (event) => {
+    this.setState({
+      filter: event.currentTarget.value
+    })
+  }
   
   deleteContact = (contactID) => {
     this.setState(prevState => ({
@@ -45,8 +49,12 @@ state = {
   
   render() {
 
-    const { contacts } = this.state;
-   
+    const { contacts, filter } = this.state;
+
+    const normalizedFilter = this.state.filter.toLowerCase();
+  const visibleContactsList = this.state.contacts.filter(contact => contact.name.toLowerCase().includes(filter));
+  
+    
     return (
       
       <div
@@ -66,8 +74,8 @@ state = {
 
         <h2>Contacts</h2>
 
-        <Filter></Filter>
-        <ContactList contactsList={contacts} onDeleteContact={this.deleteContact}></ContactList>
+        <Filter filterValue={filter} onChange={this.changeFilter}></Filter>
+        <ContactList contactsList={visibleContactsList} onDeleteContact={this.deleteContact}></ContactList>
         
 
       </div>

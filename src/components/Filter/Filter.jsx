@@ -1,5 +1,7 @@
 import css from "./Filter.module.css"
-export const Filter = () => {
+
+
+export const Filter = ({filterValue, onChange}) => {
 
     return (
        <div className={css.filterContainer}>
@@ -9,7 +11,8 @@ export const Filter = () => {
             
             type="text"
             name="filter"
-            
+            value={filterValue}
+            onChange={onChange}
           />
             </label>
             </div>
