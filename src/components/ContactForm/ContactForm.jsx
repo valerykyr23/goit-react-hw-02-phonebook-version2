@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import css from './ContactForm.module.css';
 
-export class ContactForm extends React.Component {
+export class ContactForm extends Component {
   
   state = {
   
@@ -21,7 +21,7 @@ export class ContactForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.onSubmit(this.state);
-    this.reset();
+    
   }
 
   
@@ -67,7 +67,7 @@ export class ContactForm extends React.Component {
         </label>
       </div>
 
-      <button type="submit"> Add contact</button>
+        <button type="submit"> Add contact</button>
     </form>
   );
   }

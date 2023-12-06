@@ -7,7 +7,7 @@ import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 
 
-export class App extends React.Component  {
+export class App extends Component  {
 
 state = {
   contacts: [
@@ -19,9 +19,18 @@ state = {
   filter: ''
 }
 
+  
+  
+  deleteContact = (contactID) => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contactID)
+    }))
+  };
+
+
   formSubmithandler = (data) => {
     
-
+  
     const newContact = {
       id: nanoid(),
       name: data.name,
@@ -29,7 +38,7 @@ state = {
     }
 
     this.setState(prevState => ({
-      contacts: [...newContact,prevState.contacts]
+      contacts: [newContact,...prevState.contacts]
     }))
   }
 
@@ -58,7 +67,7 @@ state = {
         <h2>Contacts</h2>
 
         <Filter></Filter>
-        <ContactList contactsList={contacts}></ContactList>
+        <ContactList contactsList={contacts} onDeleteContact={this.deleteContact}></ContactList>
         
 
       </div>
