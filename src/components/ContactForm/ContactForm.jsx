@@ -11,9 +11,7 @@ export class ContactForm extends Component {
 }
 
   handleInputChange = (event) => {
-    console.log(event.currentTarget)
-    console.log(event.currentTarget.value)
-    console.log(event.currentTarget.name)
+   
     const { name, value } = event.currentTarget;
   this.setState ({[name]: value})
   }
