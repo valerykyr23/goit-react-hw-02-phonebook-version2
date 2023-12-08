@@ -43,7 +43,7 @@ state = {
 
     
 
-this.state.contacts.find(contact=> contact.name.includes(data.name)) ? alert(`${data.name} is already in contacts.`) :
+this.state.contacts.find(contact=> contact.name.toLowerCase().includes(data.name.toLowerCase())) ? alert(`${data.name} is already in contacts.`) :
 
     this.setState(prevState => ({
       contacts: [newContact,...prevState.contacts]
